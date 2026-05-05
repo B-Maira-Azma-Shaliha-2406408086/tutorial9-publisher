@@ -5,3 +5,6 @@ The publisher sends 5 events in one run, one `UserCreatedEventMessage` per `publ
 
 b. The url of: “amqp://guest:guest@localhost:5672” is the same as in the subscriber program, what does it mean?
 It means both programs connect to the same RabbitMQ message broker instance. The publisher sends events to that broker, and the subscriber listens for events from that same broker. This is the core of event-driven architecture: the broker acts as the shared intermediary, decoupling the two programs so they do not communicate directly with each other.
+
+## RabbitMQ Screenshot
+![alt text](rabbitmq.png)
