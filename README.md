@@ -12,3 +12,7 @@ It means both programs connect to the same RabbitMQ message broker instance. The
 ## Screenshot after run the Subscriber and Publisher
 ![alt text](eventdriven.png)
 When the publisher runs, it sends 5 `UserCreatedEventMessage` events to the RabbitMQ message broker, one for each user (Amir, Budi, Cica, Dira, Emir). The subscriber, which is already running and listening on the `user_created` queue, receives and processes each event as it arrives, printing the message contents to the console. This demonstrates the decoupled nature of event-driven architecture. The publisher and subscriber operate independently, communicating only through the broker.
+
+## Screenshot Spike on RabbitMQ
+![alt text](spike.png)
+Each time `cargo run` is executed in the publisher directory, 5 events are pushed to the RabbitMQ broker, causing a visible spike in the message rate chart. The spike reflects the burst of publish activity hitting the broker, then dropping back to zero once the publisher finishes and exits. Running the publisher repeatedly produces multiple spikes, showing a direct correlation between each execution and the peaks visible on the chart.
